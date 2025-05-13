@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Windows Phone 7 Emulator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="phone">
+        <div id="screen">
+            <div id="tiles">
+                <!-- 瓷砖 -->
+                <div class="tile" onclick="openApp('App 1')">App 1</div>
+                <div class="tile" onclick="openApp('App 2')">App 2</div>
+                <div class="tile" onclick="openApp('App 3')">App 3</div>
+                <!-- 动态添加的瓷砖会插入到这里 -->
+            </div>
+        </div>
+        <div id="appWindow" class="hidden">
+            <div id="appContent"></div>
+            <button onclick="closeApp()">关闭</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
