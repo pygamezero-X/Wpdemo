@@ -1,61 +1,27 @@
-body {
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #000;
+// 打开应用程序窗口
+function openApp(appName) {
+    const appContent = document.getElementById('appContent');
+    const appWindow = document.getElementById('appWindow');
+    appContent.textContent = `正在运行：${appName}`;
+    appWindow.classList.remove('hidden');
 }
 
-#phone {
-    width: 320px;
-    height: 568px;
-    background-color: #111;
-    border-radius: 20px;
-    overflow: hidden;
-    position: relative;
+// 关闭应用程序窗口
+function closeApp() {
+    const appWindow = document.getElementById('appWindow');
+    appWindow.classList.add('hidden');
 }
 
-#screen {
-    display: flex;
-    flex-wrap: wrap;
-    padding: 10px;
+// 动态添加瓷砖
+function addTile(name) {
+    const tilesContainer = document.getElementById('tiles');
+    const newTile = document.createElement('div');
+    newTile.className = 'tile';
+    newTile.textContent = name;
+    newTile.onclick = () => openApp(name);
+    tilesContainer.appendChild(newTile);
 }
 
-.tile {
-    width: 70px;
-    height: 70px;
-    margin: 5px;
-    background-color: #0078D7;
-    color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 12px;
-    font-weight: bold;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: transform 0.3s;
-}
-
-.tile:hover {
-    transform: rotateX(30deg);
-}
-
-#appWindow {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #fff;
-    color: #000;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.hidden {
-    display: none;
-}
+// 示例：动态添加瓷砖
+addTile('动态App 1');
+addTile('动态App 2');
